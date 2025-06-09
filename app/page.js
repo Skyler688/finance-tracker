@@ -1,36 +1,43 @@
+"use client";
+
 import { currencyFormatter } from "@/lib/utils";
 import ExpenseCategoryItem from "@/components/ExpenseCategoryItem";
+
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Doughnut } from "react-chartjs-2";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 const DUMMY_DATE = [
   {
     id: 1,
     title: "Entertainment",
-    color: "#000",
-    amount: 500,
+    color: "#999",
+    total: 500,
   },
   {
     id: 2,
     title: "Gass",
-    color: "#000",
-    amount: 200,
+    color: "#620",
+    total: 200,
   },
   {
     id: 3,
     title: "Fuel",
-    color: "#000",
-    amount: 1200,
+    color: "#900",
+    total: 1200,
   },
   {
     id: 4,
     title: "Movies",
-    color: "#000",
-    amount: 800,
+    color: "#107",
+    total: 800,
   },
   {
     id: 5,
     title: "Holiday",
-    color: "#000",
-    amount: 2000,
+    color: "#638",
+    total: 2000,
   },
 ];
 
@@ -51,15 +58,36 @@ export default function Home() {
       <section className="py-6">
         <h3 className="text-2xl">My Expenses</h3>
         <div className="flex flex-col gap-4 mt-6">
-          {DUMMY_DATE.map((expence) => {
+          {DUMMY_DATE.map((expense) => {
             return (
               <ExpenseCategoryItem
-                color={expence.color}
-                title={expence.title}
-                amount={expence.amount}
+                color={expense.color}
+                title={expense.title}
+                total={expense.total}
               />
             );
           })}
+        </div>
+      </section>
+
+      {/* Chart Section */}
+      <section className="py-6">
+        <h3 className="text-2xl">Stats</h3>
+        <div className="w-1/2 mx-auto">
+          <Doughnut
+            data={{
+              labels: DUMMY_DATE.map((expense) => expense.title),
+              datasets: [
+                {
+                  label: "Expenses",
+                  data: DUMMY_DATE.map((expense) => expense.total),
+                  backgroundColor: DUMMY_DATE.map((expense) => expense.color),
+                  borderColor: ["#18181b"],
+                  borderWidth: 5,
+                },
+              ],
+            }}
+          />
         </div>
       </section>
     </main>
