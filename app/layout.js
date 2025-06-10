@@ -3,6 +3,8 @@ import "./globals.css";
 
 import Nav from "@/components/Navigation";
 
+import FinanceContextProvider from "@/lib/store/finance-context";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -24,7 +26,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Nav /> {children}
+        <FinanceContextProvider>
+          <Nav /> {children}
+        </FinanceContextProvider>
       </body>
     </html>
   );
