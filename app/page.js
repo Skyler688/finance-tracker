@@ -46,13 +46,39 @@ const DUMMY_DATE = [
 ];
 
 export default function Home() {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [showAddIncomeModal, setShowAddIncomeModal] = useState(false);
 
   return (
     <>
-      {/* Modal */}
-      <Modal show={modalIsOpen} onClose={setModalIsOpen}>
-        <h3>Hello</h3>
+      {/* Add Income Modal */}
+      <Modal show={showAddIncomeModal} onClose={setShowAddIncomeModal}>
+        <form className="flex flex-col gap-4">
+          <div className="input-group">
+            <label htmlFor="amount">Income Amount</label>
+            <input
+              type="number"
+              name="amount"
+              min={0.01}
+              step={0.01}
+              placeholder="Enter income amount"
+              required
+            />
+          </div>
+
+          <div className="input-group">
+            <label htmlFor="description">Description</label>
+            <input
+              name="description"
+              type="text"
+              placeholder="Enter income description"
+              required
+            />
+          </div>
+
+          <button type="submit" className="btn btn-primary">
+            Add entry
+          </button>
+        </form>
       </Modal>
 
       <main className="container max-w-2xl px-6 mx-auto">
@@ -64,7 +90,7 @@ export default function Home() {
         <section className="flex items-center gap-2 py-3">
           <button
             onClick={() => {
-              setModalIsOpen(true);
+              setShowAddIncomeModal(true);
             }}
             className="btn btn-primary"
           >
