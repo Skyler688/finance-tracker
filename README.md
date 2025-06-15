@@ -10,22 +10,12 @@ as well as automatically calculate your total leftover income and chart the expe
 ## How to run the app
 
 Download the source code and place it into a directory you wish to place the project. 
-Then navigate into the home directory of the project through the terminal (cd PathToDir/finance-tracker).
-Once in the directory run the following command to install the nessisary dependencies 
+Then navigate into the home directory of the project through the terminal (cd PathToDir/finance-tracker-main).
+Once in the directory run the following command to install the nessisary dependencies (npm install).
+Then run (npm run dev) to start the server, the local and network URL's will be displayed in the teminal upon starting the server.
+Now enter ether the local / network URL's into a browser. NOTE -> The local URL can only be accessed by the machine runing the server,
+while the network URL can be used for external devices inside your local network (WIFI connection).
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 
 
