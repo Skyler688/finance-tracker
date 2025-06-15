@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Project overview
 
-#This project is a finance tracking tool. 
+This project is a finance tracking tool. 
 You can log in via a google account, all info is stored in firebase.
 Features of the app include, the ability to add income items, create expense categories / items,
 as well as automatically calculate your total leftover income and chart the expenses.
