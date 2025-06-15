@@ -11,6 +11,10 @@ bellow is what is in the tutorial ( V3 ?), above is what is in the tailwind docs
 @tailwind utilities; */
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply text-white bg-slate-900 relative;
   }
